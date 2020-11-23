@@ -42,7 +42,33 @@
 
 	<!-- Font Favicon -->
 	<link rel="shortcut icon" href="images/favicon.png">
+	<!-- 💁 Include both scripts below to support all browsers! -->
 
+	<!-- Loads <model-viewer> for modern browsers: -->
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+	</script>
+
+	<!-- Loads <model-viewer> for old browsers like IE11: -->
+	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+	</script>
+
+	<!-- The following libraries and polyfills are recommended to maximize browser support -->
+	<!-- NOTE: you must adjust the paths as appropriate for your project -->
+
+	<!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+	<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+	<!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+	<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+	<!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+	<script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
+
+	<!-- 💁 OPTIONAL: Fullscreen polyfill is required for experimental AR features in Canary -->
+	<!--<script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>-->
+
+	<!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
+	<!--<script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script>-->
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 	<!--[if lt IE 9]>
@@ -138,13 +164,11 @@
 				<div id="second" class="col-md-7 wow bounceIn" data-wow-delay="0.5s"
 					style="visibility: visible; animation-delay: 0.5s; animation-name: bounceIn;">
 
-					<model-viewer id="reveal" ar loading="eager" background-color="#28C8EB" camera-controls disable-zoom
-						src="./models/d20.glb" alt="A 3D model of a shishkebab"
+					<model-viewer id="reveal" ios-src="./models/D20.usdz" shadow-intensity="1" camera-controls ar disable-zoom
+						src="./models/d20.glb" alt="A 3D model of a shishkebab" background-color="#70BCD1"
 						style="background-color: inherit; width:100%; height:300px; margin-top:40px;">
 					</model-viewer>
-
-
-					<!-- <iframe
+					<!-- <iframe background-color="#28C8EB"
 						src="https://clara.io/player/v2/3458c264-472b-418d-ba68-937b26755508?wait=true&tools=hide&configurator.show=false&backgroundVisible=false&hideLogo=true"
 						width="800" height="600" allowfullscreen></iframe> -->
 					<!-- <div class="sketchfab-embed-wrapper">
@@ -1005,11 +1029,7 @@
 	<script src="js/wow.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/plug_ins.js"></script>
-	<script type="module" src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer.js">
-	</script>
 
-	<script nomodule src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer-legacy.js">
-	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"
 		integrity="sha512-+VS2+Nl1Qit71a/lbncmVsWOZ0BmPDkopw5sXAS2W+OfeceCEd9OGTQWjgVgP5QaMV4ddqOIW9XLW7UVFzkMAw=="
 		crossorigin="anonymous"></script>
